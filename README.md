@@ -51,7 +51,7 @@ Research will be conducted in 3 parts:
 3. Data Visualization and Extrapolation
     1. Visualize data using graphs with gravitational pressure on the x-axis, atomic mass on the y-axis,
        and temperature as the z-axis
-    2. Visualize SNER using graphs with atomic mass on the x-axis and SNER on the y-axis, since the it was hypothesized
+    2. Visualize SNER using graphs with atomic mass on the x-axis and SNER on the y-axis, since it was hypothesized
        should increase/decrease depending on atomic mass.
    3. Extrapolate a formula for SNER based on atomic mass
    4. Extrapolate a formula for SNER based on a proportion of gravitational pressure and temperature

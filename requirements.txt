@@ -1,0 +1,7 @@
+astroquery
+pyvo
+ipython
+mocpy
+ipyaladin
+matplotlib
+astropy
