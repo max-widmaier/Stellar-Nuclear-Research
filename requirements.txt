@@ -5,3 +5,6 @@ mocpy
 ipyaladin
 matplotlib
 astropy
+pandas
+requests
+numpy
