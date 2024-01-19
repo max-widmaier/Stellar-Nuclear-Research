@@ -6,8 +6,8 @@ The goal of this research project is to determine the net energy requirement for
 
 ### System Net Energy Requirement for Fusion (SNER)
 
-SNER is the total amount of energy present in a system in order for fusion to occur.
-This includes heat energy, gravitational pressure, kinetic energy, and other forms of energy.
+SNER is the total amount of energy present in a system (as a ratio of energy per atom) in order for fusion to occur.
+This includes thermal energy, gravitational pressure, kinetic energy, and other forms of energy.
 
 SNER varies slightly from the Coulomb barrier in that it is an amount of energy found through measurements
 taken from stellar bodies, therefore, it is closer to the practical energy requirements for fusion to occur.
@@ -33,10 +33,11 @@ initial energy is required to lower the fusion temperature to a certain level.
 
 ## Research Hypothesis
 
-If atomic mass remains the same, then SNER will be constant to an inverse proportion of
-gravitational pressure, temperature, and other energy forms.
+SNER will be constant and will be the result of an inverse proportion of
+gravitational pressure, temperature, and other energy forms. Where an
+increase in temperature leads to a decrease in gravitational force and vice versa.
 
-That would mean that higher non-temperature energy forms lower the temperature required for fusion to occur.
+That would mean that higher non-temperature energy forms **lower** the temperature required for fusion to occur.
 
 ## Research Methodology
 
@@ -48,14 +49,11 @@ Research will be conducted in 3 parts:
     2. Using core temperature, calculate gravitational pressure using the concept of hydrostatic equilibrium and the
        ideal gas law
     3. Calculate SNER using the calculated gravitational pressure and core temperature
+        1. Specifically, thermal energy plus gravitational pressure or something of that sort
 3. Data Visualization and Extrapolation
-    1. Visualize data using graphs with gravitational pressure on the x-axis, atomic mass on the y-axis,
-       and temperature as the z-axis
-    2. Visualize SNER using graphs with atomic mass on the x-axis and SNER on the y-axis, since it was hypothesized
-       should increase/decrease depending on atomic mass.
-   3. Extrapolate a formula for SNER based on atomic mass
-   4. Extrapolate a formula for SNER based on a proportion of gravitational pressure and temperature
-   5. Extrapolate a general formula for SNER based on all factors (atomic mass, gravitational pressure, temperature, etc.)
+   1. Visualize data using graphs with gravitational pressure on the x-axis and temperature on the y-axis.
+   2. Extrapolate a formula for SNER based on a proportion of gravitational pressure and temperature
+   3. Extrapolate a general formula for SNER based on all factors (gravitational pressure, temperature, etc.)
 
 ## Research Resources
 1. A Python Environment Capable of Running Jupyter Notebooks
@@ -150,12 +148,10 @@ ONLY main-sequence stars for the purposes of temperature calculations**
 Stellar Radii were collected from the [Gaia DR3 Part 6 Dataset on VizieR](https://cdsarc.cds.unistra.fr/viz-bin/cat/I/360)
 This dataset contains the masses of 218,936,915 non-single stars. 
 After collating with the stellar radius dataset (matching based on a cone search), the dataset was reduced to only 
-1,643 stars.
+1,858 stars.
 
-
-### Stellar Temperature Collection
-
-[//]: # (I don't have a dataset for this yet)
+### Stellar Temperature Calculation
+Stellar Temperature was calculated using the equation for stellar core temperature, using the stellar mass and radius
 
 ### Error Calculation
 Errors for radius and temperature were calculated. Formulae and implementations can be seen in `gaia_collation.ipynb`
@@ -173,6 +169,25 @@ such as D-D fusion (since that is a main part of the Proton-Proton chain).
 ## Research Conclusion
 
 ## Research Limitations
+### Data Limitations
+The amount of data was limited due to the nature of data collation. 
+The Gaia DR3 dataset was comprehensive; however, it did not contain the necessary
+mass and radius data. Other datasets had to be used to supplement the data.
+
+This process (using cone searchers to match Gaia data with other datasets) condensed the datasets
+down to a very small number of stars (1,858 stars), comparatively.
+
+### Data Quality
+Since cone-searches were used to cross-reference data, there is a possibility that the 
+data for star mass/radii are mis-matched with the Gaia data.
+
+Also, mathematical formulae, while providing a good estimate, are not necessarily accurate.
+The formula for temperature is a good *estimate* of the temperature of a **main sequence**
+star. Having more precise data would allow for more accurate calculations.
+
+However, for the purpose of this research a good estimate should suffice,
+as the goal is to determine enough of a relation to do predictions for force/temperature 
+requirements for fusion on Earth.
 
 ## Research Future Work
 ### Higher Quality Data
