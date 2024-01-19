@@ -85,6 +85,21 @@ Where:
 
 `R sub avg` is the average radius of the star
 
+However, a new formula derived from a solution to the Lane-Emden equation is used to calculate the stellar core temperature.
+This equation not requiring the average atomic mass of the star, makes it more desirable to the former formula.
+
+The equation is as follows:
+
+![Equation for Temperature](imgs/latex_core_temp.png)
+
+Where:
+
+`T sub c` is the stellar core temperature
+
+`M sub *` is the mass of the star
+
+`R sub *` is the radius of the star
+
 The second equation we need is the equation for gravitational pressure, which is as follows:
 
 [//]: # (P_g = \frac{GM^2}{R^4})
@@ -92,10 +107,14 @@ The second equation we need is the equation for gravitational pressure, which is
 ![P_g = \frac{GM^2}{R^4}](imgs/latex_gravitation_pressure_white.png)
 
 Where:
-P sub g is the gravitational pressure
-G is the gravitational constant
-M is the mass of the star
-R is the radius of the star
+
+`P sub g` is the gravitational pressure
+
+`G` is the gravitational constant
+
+`M` is the mass of the star
+
+`R` is the radius of the star
 
 ### Stellar Radius Collection
 Initially, stellar radii were collected from the [VisieR Catalogue of Stellar Diameters dataset](https://cdsarc.cds.unistra.fr/viz-bin/cat/II/224)
@@ -137,6 +156,9 @@ After collating with the stellar radius dataset (matching based on a cone search
 ### Stellar Temperature Collection
 
 [//]: # (I don't have a dataset for this yet)
+
+### Error Calculation
+Errors for radius and temperature were calculated. Formulae and implementations can be seen in `gaia_collation.ipynb`
 
 
 ## Data Analysis
