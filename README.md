@@ -57,7 +57,14 @@ Research will be conducted in 3 parts:
    4. Extrapolate a formula for SNER based on a proportion of gravitational pressure and temperature
    5. Extrapolate a general formula for SNER based on all factors (atomic mass, gravitational pressure, temperature, etc.)
 
-### Data Collection
+## Research Resources
+1. A Python Environment Capable of Running Jupyter Notebooks
+2. An account with the European Space Agency in order to access the Gaia archive (To handle data processing via ADQL)
+3. A program to run Jupyter Notebooks, such as:
+   1. Jupyter Notebook/Lab via the command line
+   2. A compatible IDE such as Visual Studio Code or PyCharm Professional (This research was conducted using PyCharm Professional under an educational license)
+
+## Data Collection
 The first equation we need is the equation for stellar core temperature, which is as follows:
 
 [//]: # (T_c = &#40;\frac{G}{k}&#41;\times&#40;\frac{Mm_a}{R_{avg}}&#41;)
@@ -65,12 +72,18 @@ The first equation we need is the equation for stellar core temperature, which i
 ![T_c = &#40;\frac{G}{k}&#41;\times&#40;\frac{Mm_a}{R_{avg}}](imgs/latex_stellar_core_temp_white.png)
 
 Where:
-T sub c is the stellar core temperature
-G is the gravitational constant
-k is the Boltzmann constant
-M is the mass of the star
-m sub a is the average atomic mass of the star
-R sub avg is the average radius of the star
+
+`T sub c` is the stellar core temperature
+
+`G` is the gravitational constant
+
+`k` is the Boltzmann constant
+
+`M` is the mass of the star
+
+`m sub a` is the average atomic mass of the star
+
+`R sub avg` is the average radius of the star
 
 The second equation we need is the equation for gravitational pressure, which is as follows:
 
@@ -84,23 +97,52 @@ G is the gravitational constant
 M is the mass of the star
 R is the radius of the star
 
-#### Stellar Radius Collection
-Stellar Radii were collected from the [VisieR Catalogue of Stellar Diameters dataset](https://cdsarc.cds.unistra.fr/viz-bin/cat/II/224)
+### Stellar Radius Collection
+Initially, stellar radii were collected from the [VisieR Catalogue of Stellar Diameters dataset](https://cdsarc.cds.unistra.fr/viz-bin/cat/II/224)
 This dataset contains the radii of 9733 stars.
 
-#### Stellar Mass Collection
+However, once relating with stellar mass data, there were far too few entries in the resulting dataset to be useful. (Around a few hundred).
+
+An alternative method of collecting stellar radii was needed. Using trigonometry, [LDD (Limb Darkening Distance) data](https://cdsarc.cds.unistra.fr/viz-bin/cat/II/346), 
+as well as parallax angles to measure distances
+provided by the Gaia mission's Data Release 3, stellar radii were calculated using the following equation:
+
+[//]: # (R = \frac{LDD}{\tan\theta})
+![R = \frac{LDD}{\tan\theta}](imgs/latex_radius.png)
+
+Where:
+
+`d` is the distance to the star, calculated using the parallax angle:
+
+`θ` is the LDD angle in radians, provided by the LDD dataset from VizieR
+
+[//]: # (d = \frac{1000}{p} * 30856775812800)
+
+![d = \frac{1}{\pi}](imgs/latex_distance.png)
+
+Where:
+
+`p` is the parallax angle in milli-arcseconds
+
+**It's very important to note that this data were curated to include
+ONLY main-sequence stars for the purposes of temperature calculations** 
+
+### Stellar Mass Collection
+Stellar Radii were collected from the [Gaia DR3 Part 6 Dataset on VizieR](https://cdsarc.cds.unistra.fr/viz-bin/cat/I/360)
+This dataset contains the masses of 218,936,915 non-single stars. 
+After collating with the stellar radius dataset (matching based on a cone search), the dataset was reduced to only 
+1,643 stars.
+
+
+### Stellar Temperature Collection
 
 [//]: # (I don't have a dataset for this yet)
 
-#### Stellar Atomic Mass distribution
 
-[//]: # (I don't have a dataset for this yet)
-
-
-### Data Analysis
+## Data Analysis
 
 
-### Data Visualization and Extrapolation
+## Data Visualization and Extrapolation
 Note to self: I'm probably going to try to extrapolate a formula for SNER using a known energy requirement for fusion
 such as D-D fusion (since that is a main part of the Proton-Proton chain).
 
@@ -111,3 +153,21 @@ such as D-D fusion (since that is a main part of the Proton-Proton chain).
 ## Research Limitations
 
 ## Research Future Work
+### Higher Quality Data
+While mathematical methods to determine such data as radii and more importantly temperature exist, they are not necessarily extremely accurate.
+
+They provide a very strong basis for generalization, but the degree of error may provide inaccuracies. Due limited data access, 
+such mathematical functions must be taken to forward this research.
+
+### More Data
+It is a standard rule in data science that the more data one possesses, the more accurate the resulting model will be.
+
+In tandem with higher quality data, more data will allow for a more accurate model to be created.
+
+## Acknowledgements
+I would like to thank first and foremost the wonderful researchers and data curators at the [Gaia mission](https://www.cosmos.esa.int/web/gaia/home) for providing
+excellent data and astronomical analysis tools including the [Gaia Archive](https://archives.esac.esa.int/gaia/) where
+I was able to host and manipulate my data with ease using ADQL.
+
+Secondly, I would like to thank the [VizieR](https://vizier.u-strasbg.fr/viz-bin/VizieR) team for providing a wonderful
+data hosting service for astronomers and researchers alike, allowing me to access all the necessary data to make this project possible.
