@@ -151,14 +151,43 @@ After collating with the stellar radius dataset (matching based on a cone search
 1,858 stars.
 
 ### Stellar Temperature Calculation
-Stellar Temperature was calculated using the equation for stellar core temperature, using the stellar mass and radius
+Stellar Temperature was calculated using the equation for stellar core temperature, using the stellar mass and radius.
+
+The formula is as follows:
+
+![Stellar Core Temperature Formula](imgs/latex_core_temp.png)
+
+Where:
+
+`T sub c` = Stellar core temperature (in Kelvin)
+
+`M sub *` = Stellar mass (in solar masses)
+
+`R sub *` = Stellar radius (in radii)
+
 
 ### Error Calculation
 Errors for radius and temperature were calculated. Formulae and implementations can be seen in `gaia_collation.ipynb`
 
 
 ## Data Analysis
+Now that we have collected the necessary data, we can calculate the gravitational pressure and from that
+determine SNER.
 
+### Gravitational Pressure Calculation
+We can determine the gravitational pressure using the following formula:
+
+![P_g = \frac{GM^2}{R^4}](imgs/latex_gravitation_pressure_white.png)
+
+Where:
+
+`P sub g` is the gravitational pressure
+
+`G` is the gravitational constant
+
+`M` is the mass of the star
+
+`R` is the radius of the star
 
 ## Data Visualization and Extrapolation
 Note to self: I'm probably going to try to extrapolate a formula for SNER using a known energy requirement for fusion
