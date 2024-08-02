@@ -1,0 +1,100 @@
+! inlist to evolve a 15 solar mass star
+
+! For the sake of future readers of this file (yourself included),
+! ONLY include the controls you are actually using.  DO NOT include
+! all of the other controls that simply have their default values.
+
+&star_job
+  ! see star/defaults/star_job.defaults
+
+  ! begin with a pre-main sequence model
+    create_pre_main_sequence_model = .true.
+
+  ! display on-screen plots
+    pgstar_flag = .false.
+
+    show_eqns_and_vars_names = .true.
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  use_Type2_opacities = .true.
+  Zbase = 0.02
+
+/ ! end of kap namelist
+
+
+&controls
+  ! Terminal outputs
+  terminal_interval = 25
+  write_header_frequency = 100
+
+  ! see star/defaults/controls.defaults
+
+  ! starting specifications
+    initial_mass = {star_mass} ! in Msun units
+    initial_y = {star_helium}
+    initial_z = {star_metallicity}
+
+    ! Initial mass fractions for specific elements
+    ! Namely: Carbon, Nitrogen, Oxygen, Neon, Magnesium, Aluminum, Silicon, Phosphorus, Sulfur, Potassium, Calcium, Titanium, Chromium, Manganese, Iron, and Nickel
+    ! These are automatically populated through the setup code
+    $c_mass_frac$
+    $o_mass_frac$
+    $n_mass_frac$
+    $ne_mass_frac$
+    $mg_mass_frac$
+    $al_mass_frac$
+    $si_mass_frac$
+    $p_mass_frac$
+    $s_mass_frac$
+    $k_mass_frac$
+    $ca_mass_frac$
+    $ti_mass_frac$
+    $cr_mass_frac$
+    $mn_mass_frac$
+    $fe_mass_frac$
+    $ni_mass_frac$
+
+  ! when to stop
+    max_age = {star_age}
+    stop_at_phase_He_Burn = .true.
+    max_model_number = 1500
+    
+  ! wind
+
+  ! atmosphere
+
+  ! rotation
+
+  ! element diffusion
+
+  ! mlt
+
+  ! mixing
+
+  ! timesteps
+  
+  ! mesh
+
+  ! solver
+     ! options for energy conservation (see MESA V, Section 3)
+     energy_eqn_option = 'dedt'
+     use_gold_tolerances = .true.
+
+  ! output
+    write_profiles_flag = .false.
+    history_interval = 100
+    photo_interval = 500
+
+/ ! end of controls namelist

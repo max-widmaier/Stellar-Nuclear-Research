@@ -8,3 +8,5 @@ astropy
 pandas
 requests
 numpy
+jupyter
+ipympl
