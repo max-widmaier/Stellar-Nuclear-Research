@@ -5,18 +5,19 @@ import os
 import shutil
 import sys
 
-index = int(sys.argv[1])
-data = pd.read_csv('sim_batch_1500/data.csv')
-SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Mg', 'Al', 'Si', 'P', 'S', 'K', 'Ca', 'Ti', 'Cr', 'Mn', 'Fe', 'Ni']
+thread_num = int(sys.argv[1])
+index = int(sys.argv[2])
+data = pd.read_csv(f'run/{thread_num}/data.csv')
+SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Mg', 'Al', 'Si', 'S', 'K', 'Ca', 'Ti', 'Cr', 'Mn', 'Fe', 'Ni']
 
-if not os.path.exists('./run/'):
+if not os.path.exists(f'./run/{thread_num}'):
     # Copy full template
-    os.system(f'cp -r ./template ./run/')
+    os.system(f'cp -r ./template ./run/{thread_num}')
 else:
     # Otherwise just copy inlist_project
-    shutil.copy('template/inlist_project', './run/inlist_project')
+    shutil.copy('template/inlist_project', f'./run/{thread_num}/inlist_project')
 
-dir_name = './run'
+dir_name = f'./run/{thread_num}'
 row = data.iloc[index]
 with open(dir_name + '/inlist_project', 'r') as f_read:
     content = f_read.read()

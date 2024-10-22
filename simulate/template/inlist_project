@@ -56,7 +56,6 @@
     $mg_mass_frac$
     $al_mass_frac$
     $si_mass_frac$
-    $p_mass_frac$
     $s_mass_frac$
     $k_mass_frac$
     $ca_mass_frac$
@@ -69,11 +68,11 @@
   ! when to stop
     max_age = {star_age}
     stop_at_phase_He_Burn = .true.
-    max_model_number = 1500
+    max_model_number = 500
     
   ! wind
 
-  ! atmosphere
+   ! atmosphere
 
   ! rotation
 

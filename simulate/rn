@@ -1,2 +1,2 @@
 python ./setup.py
-./run-iter.sh
+parallel ./run-iter_{}.sh ::: $(seq 0 3)
