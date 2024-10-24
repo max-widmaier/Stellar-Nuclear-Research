@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 data = pd.read_csv('data.csv')
-SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Mg', 'Al', 'Si', 'S', 'K', 'Ca', 'Ti', 'Cr', 'Mn', 'Fe', 'Ni']
+SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Mg', 'Al', 'Si', 'S', 'K', 'Ca', 'Cr', 'Mn', 'Fe', 'Ni']
 
 N_THREADS = 4
 

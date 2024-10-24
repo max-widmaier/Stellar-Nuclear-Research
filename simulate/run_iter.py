@@ -8,7 +8,7 @@ import sys
 thread_num = int(sys.argv[1])
 index = int(sys.argv[2])
 data = pd.read_csv(f'run/{thread_num}/data.csv')
-SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Mg', 'Al', 'Si', 'S', 'K', 'Ca', 'Ti', 'Cr', 'Mn', 'Fe', 'Ni']
+SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Mg', 'Al', 'Si', 'S', 'K', 'Ca', 'Cr', 'Mn', 'Fe', 'Ni']
 
 if not os.path.exists(f'./run/{thread_num}'):
     # Copy full template
