@@ -4,5 +4,6 @@ python3 ./run_iter.py $1 $2 # Argument 1 is the thread number, argument 2 is the
 cd ./run/$1 && ./rn
 cd ../..
 # Save the history file
-cp ./run/$1/LOGS/history.data ./LOGS/$1/history_$2.data
-echo Simulation job $2 finished
+mkdir -p ./LOGS/$1/$2
+cp ./run/$1/LOGS/* ./LOGS/$1/$2/
+echo Simulation job $1.$2 finished

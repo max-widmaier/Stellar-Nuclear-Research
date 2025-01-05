@@ -50,7 +50,7 @@ for i in range(N_THREADS):
 
             f.write(content)
 
-    with open(f'./run-iter_{i}.sh', 'w') as f:
+    with open(f'./run-batch_{i}.sh', 'w') as f:
         f.write(f"""for i in $(seq 0 {len(data_split) - 1})
     do
         echo "Running $i"

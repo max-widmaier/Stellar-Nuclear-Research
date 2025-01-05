@@ -1,19 +1,9 @@
-! inlist to evolve a 15 solar mass star
-
-! For the sake of future readers of this file (yourself included),
-! ONLY include the controls you are actually using.  DO NOT include
-! all of the other controls that simply have their default values.
-
 &star_job
-  ! see star/defaults/star_job.defaults
-
   ! begin with a pre-main sequence model
     create_pre_main_sequence_model = .true.
-
-  ! display on-screen plots
     pgstar_flag = .false.
-
     show_eqns_and_vars_names = .true.
+
 
 / ! end of star_job namelist
 
@@ -29,7 +19,7 @@
   ! kap options
   ! see kap/defaults/kap.defaults
   use_Type2_opacities = .true.
-  Zbase = 0.02
+  Zbase = {star_metallicity}
 
 / ! end of kap namelist
 
@@ -47,7 +37,7 @@
     initial_z = {star_metallicity}
 
     ! Initial mass fractions for specific elements
-    ! Namely: Carbon, Nitrogen, Oxygen, Neon, Magnesium, Aluminum, Silicon, Phosphorus, Sulfur, Potassium, Calcium, Titanium, Chromium, Manganese, Iron, and Nickel
+    ! Namely: Carbon, Nitrogen, Oxygen, Neon, Magnesium, Aluminum, Silicon, Sulfur, Potassium, Calcium, Titanium, Chromium, Manganese, Iron, and Nickel
     ! These are automatically populated through the setup code
     $c_mass_frac$
     $o_mass_frac$
@@ -59,7 +49,6 @@
     $s_mass_frac$
     $k_mass_frac$
     $ca_mass_frac$
-    $ti_mass_frac$
     $cr_mass_frac$
     $mn_mass_frac$
     $fe_mass_frac$
@@ -68,23 +57,7 @@
   ! when to stop
     max_age = {star_age}
     stop_at_phase_He_Burn = .true.
-    max_model_number = 500
-    
-  ! wind
-
-   ! atmosphere
-
-  ! rotation
-
-  ! element diffusion
-
-  ! mlt
-
-  ! mixing
-
-  ! timesteps
-  
-  ! mesh
+    max_model_number = 1000
 
   ! solver
      ! options for energy conservation (see MESA V, Section 3)
@@ -92,8 +65,8 @@
      use_gold_tolerances = .true.
 
   ! output
-    write_profiles_flag = .false.
     history_interval = 100
-    photo_interval = 500
+    photo_interval = 3000
+    profile_interval = 100
 
 / ! end of controls namelist
