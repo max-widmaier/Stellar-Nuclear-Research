@@ -1,10 +1,7 @@
-*.csv
 *.vot
 .idea
 *.rawdata
 gaia/CREDENTIALS
-*.gz
-*.fits
 simulate/run
-simulate/LOGS
 history_*.data
+data_ignored
