@@ -1,0 +1,74 @@
+&star_job
+  ! begin with a pre-main sequence model
+    create_pre_main_sequence_model = .true.
+    pgstar_flag = .false.
+    show_eqns_and_vars_names = .true.
+
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  use_Type2_opacities = .true.
+  Zbase = 0.0122
+
+/ ! end of kap namelist
+
+
+&controls
+  ! Terminal outputs
+  terminal_interval = 25
+  write_header_frequency = 100
+
+  ! see star/defaults/controls.defaults
+
+  ! starting specifications
+    initial_mass = 1 ! in Msun units
+    initial_y = 0.279
+    initial_z = 0.0122
+
+    ! Initial fractions of total metallicity for specific elements
+    ! Namely: Carbon, Nitrogen, Oxygen, Neon, Magnesium, Aluminum, Silicon, Sulfur, Potassium, Calcium, Titanium, Chromium, Manganese, Iron, and Nickel
+    ! These are automatically populated through the setup code
+    accretion_dump_missing_metals_into_heaviest = .false
+
+    z_fraction_c = 0.17829933908052542
+    z_fraction_o = 0.44224548193586005
+    z_fraction_n = 0.051039497886703145
+    z_fraction_ne =  0.08442776097050356
+    z_fraction_mg =  0.04980422560958677
+    z_fraction_al =  0.0038250514763790303
+    z_fraction_si =  0.05496075958989376
+    z_fraction_s = 0.026767130151041794
+    z_fraction_k = 0.0002842683056734314
+    z_fraction_ca =  0.004948534555774403
+    z_fraction_cr =  0.0013725915997813256
+    z_fraction_mn =  0.0008155371688932485
+    z_fraction_fe =  0.09518200778539983
+    z_fraction_ni =  0.006027813883984313
+
+  ! when to stop
+    max_age = 4603000000
+    stop_at_phase_He_Burn = .true.
+    max_model_number = 1000
+
+  ! solver
+     ! options for energy conservation (see MESA V, Section 3)
+     energy_eqn_option = 'dedt'
+     use_gold_tolerances = .true.
+
+  ! output
+    history_interval = 100
+    photo_interval = 3000
+    profile_interval = 100
+
+/ ! end of controls namelist

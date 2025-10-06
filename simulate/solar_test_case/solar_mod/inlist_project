@@ -1,0 +1,54 @@
+&star_job
+  ! begin with a pre-main sequence model
+    create_pre_main_sequence_model = .true.
+    pgstar_flag = .false.
+    show_eqns_and_vars_names = .true.
+
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  use_Type2_opacities = .true.
+  Zbase = 0.01165712567958214
+
+/ ! end of kap namelist
+
+
+&controls
+  ! Terminal outputs
+  terminal_interval = 25
+  write_header_frequency = 100
+
+  ! see star/defaults/controls.defaults
+
+  ! starting specifications
+    initial_mass = 1 ! in Msun units
+    initial_y = 0.27785996392712253
+    initial_z = 0.01165712567958214
+
+  ! when to stop
+    max_age = 4603000000
+    stop_at_phase_He_Burn = .true.
+    max_model_number = 1000
+
+  ! solver
+     ! options for energy conservation (see MESA V, Section 3)
+     energy_eqn_option = 'dedt'
+     use_gold_tolerances = .true.
+
+  ! output
+    history_interval = 100
+    photo_interval = 3000
+    profile_interval = 100
+
+/ ! end of controls namelist
