@@ -8,7 +8,7 @@ import sys
 thread_num = int(sys.argv[1])
 index = int(sys.argv[2])
 data = pd.read_csv(f'run/{thread_num}/data.csv')
-SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Mg', 'Al', 'Si', 'S', 'K', 'Ca', 'Cr', 'Mn', 'Fe', 'Ni']
+# SPECTROSCOPY_ATOMS = ['C', 'O', 'N', 'Ne', 'Na', 'Mg', 'Al', 'Si', 'S', 'K', 'Ca', 'Cr', 'Mn', 'Fe', 'Ni']
 
 if not os.path.exists(f'./run/{thread_num}'):
     # Copy full template
@@ -24,15 +24,15 @@ with open(dir_name + '/inlist_project', 'r') as f_read:
     with open(dir_name + '/inlist_project', 'w') as f:
         content = content.replace('{star_mass}', str(row['mass']))
         content = content.replace('{star_helium}', str(row['y']))
-        content = content.replace('{star_metallicity}', str(row['z']))
-        content = content.replace('{star_age}', str(row['age']))
-
-        for atom in SPECTROSCOPY_ATOMS:
-            atom_replace = atom.lower()
-            param_name = f'${atom_replace}_mass_frac$'
-            if not np.isnan(row[f'{atom}_mass_frac']) and row[f'{atom}_mass_frac'] > 0:
-                content = content.replace(param_name, f'z_fraction_{atom_replace} = {row[f"{atom}_mass_frac"]}')
-            else:
-                content = content.replace(param_name, f'! {atom}_mass_frac is nan and has been ignored')
+        # content = content.replace('{star_metallicity}', str(row['z']))
+        # content = content.replace('{star_age}', str(row['age']))
+        #
+        # for atom in SPECTROSCOPY_ATOMS:
+        #     atom_replace = atom.lower()
+        #     param_name = f'${atom_replace}_mass_frac$'
+        #     if not np.isnan(row[f'{atom}_mass_frac']) and row[f'{atom}_mass_frac'] > 0:
+        #         content = content.replace(param_name, f'z_fraction_{atom_replace} = {row[f"{atom}_mass_frac"]}')
+        #     else:
+        #         content = content.replace(param_name, f'! {atom}_mass_frac is nan and has been ignored')
 
         f.write(content)

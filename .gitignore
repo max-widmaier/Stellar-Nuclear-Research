@@ -5,3 +5,4 @@ gaia/CREDENTIALS
 simulate/run
 history_*.data
 data_ignored
+data/APOGEE_DR17.fits

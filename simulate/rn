@@ -1,2 +1,2 @@
 python ./setup.py
-parallel ./run-batch_{}.sh ::: $(seq 0 3)
+parallel -u ./run-batch_{}.sh ::: $(seq 0 3)

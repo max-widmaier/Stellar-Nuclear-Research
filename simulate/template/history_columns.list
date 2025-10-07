@@ -41,6 +41,10 @@
       model_number ! counting from the start of the run
       num_zones ! number of zones in the model
 
+      log_cntr_P
+      log_cntr_Rho
+      log_cntr_T
+
    !## age
 
       star_age ! elapsed simulated time in years since the start of the run
@@ -299,7 +303,7 @@
       !raw_rate r_h1_h1_ec_h2
       !raw_rate r_h1_h1_wk_h2
 
-      !raw_rate r_he3_he3_to_h1_h1_he4
+      raw_rate r_he3_he3_to_h1_h1_he4
 
 
    !## nuclear reactions at center
@@ -631,7 +635,7 @@
    !## mass fractions near center
 
       ! the following controls automatically add columns for all of the isos that are in the current net
-      !add_center_abundances
+      add_center_abundances
       !add_log_center_abundances
 
       ! individual central mass fractions (as many as desired)
