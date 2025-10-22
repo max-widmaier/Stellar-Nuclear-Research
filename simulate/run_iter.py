@@ -22,7 +22,7 @@ row = data.iloc[index]
 with open(dir_name + '/inlist_project', 'r') as f_read:
     content = f_read.read()
     with open(dir_name + '/inlist_project', 'w') as f:
-        content = content.replace('{star_mass}', str(row['mass']))
+        # content = content.replace('{star_mass}', str(row['mass']))
         content = content.replace('{star_helium}', str(row['y']))
         # content = content.replace('{star_metallicity}', str(row['z']))
         # content = content.replace('{star_age}', str(row['age']))

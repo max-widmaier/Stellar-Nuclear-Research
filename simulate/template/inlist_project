@@ -48,7 +48,7 @@
 
   ! output
     history_interval = 5
-    photo_interval = 3000
+    photo_interval = 0
     profile_interval = 10
     max_num_profile_models = 1000
 
