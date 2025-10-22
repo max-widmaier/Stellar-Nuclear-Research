@@ -36,10 +36,10 @@
 
   ! when to stop
     stop_at_phase_He_Burn = .true.
-    max_model_number = 5000
+    max_model_number = 3000
 
-    xa_central_lower_limit_species(1) = 'h1'
-    xa_central_lower_limit(1) = 1E-018
+  ! xa_central_lower_limit_species(1) = 'h1'
+  ! xa_central_lower_limit(1) = 1E-018
 
   ! solver
      ! options for energy conservation (see MESA V, Section 3)
@@ -49,7 +49,7 @@
   ! output
     history_interval = 5
     photo_interval = 3000
-    profile_interval = 25
+    profile_interval = 10
     max_num_profile_models = 1000
 
 / ! end of controls namelist

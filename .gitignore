@@ -6,3 +6,7 @@ simulate/run
 history_*.data
 data_ignored
 data/APOGEE_DR17.fits
+
+simulate/LOGS_archive
+simulate/LOGS_archive2
+simulate/LOGS
