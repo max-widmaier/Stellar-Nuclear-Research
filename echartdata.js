@@ -329,7 +329,7 @@ const k_B =  1.380649e-23
 function evToTemperature(energy) {
  const kelvin = 2/3 * energy * eVToJoules / k_B;
  const celcius = kelvin - 273.15;
- return (celcius * 9/5) + 32
+ return kelvin
 }
 
 option = {
@@ -340,18 +340,21 @@ option = {
 	 formatter: (value) => {
 	   let converted = evToTemperature(value);
 	   let rounded = Math.abs(Math.round(converted / 1e5) * 1e5);
-	   return `${(rounded).toLocaleString()}F`;
+	   return `${(rounded).toLocaleString()}K`;
 	 },
-	 fontSize: '20px',
+	 fontSize: '28px',
 	 textStyle: {
-	   fontWeight: 'bold'
+	   fontWeight: 'bold',
+	   color: 'black'
 	 }
    },
-   name: "Temperature (Fahrenheit)",
+   name: "Temperature (Kelvin)",
    nameLocation: 'center',
    nameGap: 30,
    nameTextStyle: {
-	 fontSize: '28px'
+  	 fontSize: '30px',
+  	 color: 'black',
+	   fontWeight: 'bold',
    }
  }],
  toolbox: {
@@ -362,39 +365,27 @@ option = {
  },
  yAxis: [{
    type: 'value',
-   name: "Target Area (m²)",
+   name: "Cross-Section (m²)",
    nameTextStyle: {
-	 fontSize: '28px'
+	 fontSize: '30px',
+	 fontWeight: 'bold',
+	 color: "black"
    },
+	 nameGap: 40,
    axisLabel: {
 	 formatter: (value) => {
 	   let newVal = value
 	   return `${newVal}e-28 m²`;
 	 },
-	 fontSize: '20px',
+	 fontSize: '28px',
 	 textStyle: {
-	   fontWeight: 'bold'
-	 }
-   }
- }, {
-   type: 'value',
-   name: "Target Area (m²)",
-   nameTextStyle: {
-	 fontSize: '28px'
-   },
-   axisLabel: {
-	 formatter: (value) => {
-	   let newVal = value
-	   return `${newVal}e-28 m²`;
-	 },
-	 fontSize: '20px',
-	 textStyle: {
-	   fontWeight: 'bold'
+	   fontWeight: 'bold',
+	   color: 'black'
 	 }
    }
  }],
  title: {
-	 text: 'D-T and He-3 Cross-Sections',
+	 text: '',
 	 left: 'center',
 	 textStyle: {
 	   fontSize: '40px'
@@ -419,7 +410,7 @@ option = {
    {
 	 data: dataHe3.map(datum => [datum.E, datum.Sig * 1000]),
 	 type: 'line',
-	 yAxisIndex: 1,
+	 yAxisIndex: 0,
 	 lineStyle: {
 	   width: 4
 	 },
@@ -437,7 +428,9 @@ option = {
    itemWidth: 50,
    itemHeight: 20,
    textStyle: {
-	 fontSize: '22px' 
+	 fontSize: '22px' ,
+	 color: 'black',
+	 fontWeight: 'bold'
    }
  }
 };
